@@ -12,17 +12,23 @@ class NotesView extends StatelessWidget {
       body: const NotesViewBody(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showModalBottomSheet(context: context, builder: (context) {
-            return const AddNoteBottomSheet() ;
-          },);
+          showModalBottomSheet(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16)
+            ),
+            context: context,
+            builder: (context) {
+              return const AddNoteBottomSheet();
+            },
+          );
         },
         backgroundColor: const Color.fromARGB(255, 17, 212, 238),
         shape: const CircleBorder(
-          side: BorderSide(
-            color: Color.fromARGB(255, 17, 212, 238)
-          )
+            side: BorderSide(color: Color.fromARGB(255, 17, 212, 238))),
+        child: const Icon(
+          FontAwesomeIcons.plus,
+          color: Colors.black,
         ),
-        child: const Icon(FontAwesomeIcons.plus ,color: Colors.black,),
       ),
     );
   }
