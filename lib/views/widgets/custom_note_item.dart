@@ -7,7 +7,7 @@ class CustomNoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top : 16),
+      padding: const EdgeInsets.only(top : 8),
       child: Container(
         padding: const EdgeInsets.symmetric(
           vertical: 16,
@@ -21,7 +21,7 @@ class CustomNoteItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              contentPadding: EdgeInsets.all(0),
+              contentPadding: const EdgeInsets.all(0),
               title: const Text(
                 'Flutter Tips',
                 style: TextStyle(
