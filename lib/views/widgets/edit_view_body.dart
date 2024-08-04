@@ -12,12 +12,13 @@ class EditViewBody extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           const CustomAppBar(
             title: 'Edit Note',
             icon: Icons.check,
           ),
+          const SizedBox(height: 10,),
           CustomTextField(
             onSaved: (p0) {},
             hint: 'Title',
