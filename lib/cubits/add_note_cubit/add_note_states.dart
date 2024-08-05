@@ -11,3 +11,4 @@ class AddNoteFailure extends NoteStates {
 
   AddNoteFailure({required this.errorMessage});
 }
+   
