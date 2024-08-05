@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/edit_note_view.dart';
+import 'package:intl/intl.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({super.key});
+  const CustomNoteItem({super.key, required this.noteModel});
 
+  final NoteModel noteModel ;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -25,7 +28,7 @@ class CustomNoteItem extends StatelessWidget {
             horizontal: 16,
           ),
           decoration: BoxDecoration(
-            color: const Color(0xffFFCD79),
+            color:  Color(noteModel.color),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
@@ -33,9 +36,9 @@ class CustomNoteItem extends StatelessWidget {
             children: [
               ListTile(
                 contentPadding: const EdgeInsets.all(0),
-                title: const Text(
-                  'Flutter Tips',
-                  style: TextStyle(
+                title:  Text(
+                  noteModel.title ,
+                  style: const TextStyle(
                     fontSize: 26,
                     color: Colors.black,
                   ),
@@ -43,7 +46,7 @@ class CustomNoteItem extends StatelessWidget {
                 subtitle: Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Text(
-                    'Build your career with flutter and create awesome Ui',
+                    noteModel.subTitle,
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black.withOpacity(.5),
@@ -62,7 +65,7 @@ class CustomNoteItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
-                  'Agust3 , 2024',
+                  '${DateFormat('MMM').format(noteModel.date) } ${noteModel.date.day} ${noteModel.date.year}',
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.black.withOpacity(.5),
