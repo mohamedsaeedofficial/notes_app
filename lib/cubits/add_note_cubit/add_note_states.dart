@@ -1,12 +1,12 @@
-abstract class NoteStates {}
+abstract class AddNoteStates {}
 
-class AddNoteInitial extends NoteStates {}
+class AddNoteInitial extends AddNoteStates {}
 
-class AddNoteLoading extends NoteStates {}
+class AddNoteLoading extends AddNoteStates {}
 
-class AddNoteSuccess extends NoteStates {}
+class AddNoteSuccess extends AddNoteStates {}
 
-class AddNoteFailure extends NoteStates {
+class AddNoteFailure extends AddNoteStates {
   final String errorMessage;
 
   AddNoteFailure({required this.errorMessage});
