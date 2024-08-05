@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:note_app/cubits/add_note_cubit/add_note_states.dart';
 import 'package:note_app/cubits/add_note_cubit/add_notes_cubit.dart';
@@ -17,22 +16,23 @@ class AddNoteBottomSheet extends StatelessWidget {
         horizontal: 16,
         vertical: 16,
       ),
-      child: SingleChildScrollView(
-        child: BlocConsumer<AddNotesCubit, NoteStates>(
-          listener: (context, state) {
-            if (state is AddNoteFailure) {
-              showToast('failied ${state.errorMessage}');
-            }
-            if (state is AddNoteSuccess) {
-              Navigator.pop(context) ;
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
-                inAsyncCall: state is AddNoteLoading ? true : false,
-                child: const AddNoteForm());
-          },
-        ),
+      child: BlocConsumer<AddNotesCubit, NoteStates>(
+        listener: (context, state) {
+          if (state is AddNoteFailure) {
+            showToast('failied ${state.errorMessage}');
+          }
+          if (state is AddNoteSuccess) {
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+            inAsyncCall: state is AddNoteLoading ? true : false,
+            child: const SingleChildScrollView(
+              child: AddNoteForm(),
+            ),
+          );
+        },
       ),
     );
   }
