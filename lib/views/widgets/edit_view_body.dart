@@ -5,6 +5,7 @@ import 'package:note_app/main.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/widgets/custom_app_bar.dart';
 import 'package:note_app/views/widgets/custom_text_field.dart';
+import 'package:note_app/views/widgets/edit_note_color_lits.dart';
 
 class EditViewBody extends StatefulWidget {
   const EditViewBody({super.key, required this.noteModel});
@@ -55,9 +56,15 @@ class _EditViewBodyState extends State<EditViewBody> {
               supTitle = p0;
             },
             onSaved: (p0) {},
-            hint: widget.noteModel.subTitle ,
+            hint: widget.noteModel.subTitle,
             maxLine: 5,
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            child: EditNoteColorLits(
+              noteModel: widget.noteModel,
+            ),
+          )
         ],
       ),
     );
