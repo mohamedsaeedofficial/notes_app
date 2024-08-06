@@ -21,6 +21,8 @@ class AddNoteBottomSheet extends StatelessWidget {
           }
           if (state is AddNoteSuccess) {
             BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+
+            showToast('Note Added Sucess');
             Navigator.pop(context);
           }
         },
