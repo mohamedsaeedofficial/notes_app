@@ -18,7 +18,9 @@ class CustomNoteItem extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {
-              return const EditNoteView();
+              return  EditNoteView(
+                noteModel:noteModel ,
+              );
             },
           ),
         );
@@ -58,7 +60,7 @@ class CustomNoteItem extends StatelessWidget {
                 ),
                 trailing: IconButton(
                   onPressed: () {
-                    noteModel.delete() ;
+                    noteModel.delete() ; 
                     BlocProvider.of<NotesCubit>(context).fetchAllNotes() ;
                     showToast('Note Deleted ');
                   },
